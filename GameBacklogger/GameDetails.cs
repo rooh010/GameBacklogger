@@ -16,6 +16,7 @@ namespace GameBacklogger
         DataClass getGenres = new DataClass();
 
         int gameId;
+        int genreId;
 
         public GameDetails(string selectedGameId, string SelectedGameName, string SelectedGenre, string SelectedProgress)
         {
@@ -45,16 +46,20 @@ namespace GameBacklogger
                     i = System.Convert.ToInt32(selectedGameId);
                     gameId = i;
                 }
-                catch (FormatException)
+                catch (Exception ex)
                 {
-                    // the FormatException is thrown when the string text does 
-                    // not represent a valid integer.
+                    MessageBox.Show(ex.Message);
                 }
-                catch (OverflowException)
+
+                int io = 0;
+                try
                 {
-                    // the OverflowException is thrown when the string is a valid integer, 
-                    // but is too large for a 32 bit integer.  Use Convert.ToInt64 in
-                    // this case.
+                    io = System.Convert.ToInt32(selectedGameId);
+                    genreId = io;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
                 }
 
             }
