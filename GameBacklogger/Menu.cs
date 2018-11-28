@@ -18,6 +18,7 @@ namespace GameBacklogger
         {
             InitializeComponent();
             RefreshGrid();
+            this.dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -36,8 +37,15 @@ namespace GameBacklogger
             var SelectedGameName = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
             var SelectedGenre= dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
             var SelectedProgress= dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-            GameDetails td = new GameDetails(SelectedGameId, SelectedGameName, SelectedGenre, SelectedProgress);
-            td.Show();
+            GameDetails gd = new GameDetails(SelectedGameId, SelectedGameName, SelectedGenre, SelectedProgress);
+            gd.FormClosing += new FormClosingEventHandler(this.Menu_FormClosing);
+            gd.Show();
+        }
+
+        private void Menu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            RefreshGrid();
+            //bug this runs when you close the main form too
         }
     }
 }

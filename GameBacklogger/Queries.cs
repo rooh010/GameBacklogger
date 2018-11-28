@@ -23,11 +23,18 @@ Games.Game_ID=Progress.Game_ID";
 
 
         public static string selectGenres = @"SELECT
-Genres.Genre_ID
+Genres.Genre_ID as 'Genre_ID'
 ,Genres.Genre_Type as 'Genre'
 from Genres
 ";
 
+
+        public static string updateDetails(string gameName, int gameId)
+        {
+            string updateDetails = @"update Games
+set Game_Name ='" + gameName + @"' where Game_ID ='" + gameId + @"'";
+                return updateDetails;
+        }
 
     }
 }
