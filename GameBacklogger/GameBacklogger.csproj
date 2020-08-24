@@ -63,7 +63,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataClass.cs" />
+    <Compile Include="DataConnection.cs" />
     <Compile Include="GameDetails.cs">
       <SubType>Form</SubType>
     </Compile>

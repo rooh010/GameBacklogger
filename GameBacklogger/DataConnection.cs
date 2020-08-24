@@ -5,11 +5,11 @@ using System.Data.SQLite;
 
 namespace GameBacklogger
 {
-    class DataClass
+    class DataConnection
     {
         private SQLiteConnection sqlite;
 
-        public DataClass()
+        public DataConnection()
         {
             sqlite = new SQLiteConnection("Data Source=./games.db");
         }

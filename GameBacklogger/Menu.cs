@@ -12,7 +12,7 @@ namespace GameBacklogger
 {
     public partial class Menu : Form
     {
-        DataClass loadGames = new DataClass();
+        DataConnection loadGames = new DataConnection();
 
         public Menu()
         {

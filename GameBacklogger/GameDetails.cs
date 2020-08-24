@@ -13,7 +13,7 @@ namespace GameBacklogger
     public partial class GameDetails : Form
     {
 
-        DataClass getGenres = new DataClass();
+        DataConnection getGenres = new DataConnection();
 
         int gameId;
         int genreId;
@@ -83,7 +83,7 @@ namespace GameBacklogger
         private void updateButton_Click(object sender, EventArgs e)
         {
             //  MessageBox.Show(comboGenre.ValueMember);
-            DataClass UpDateGameDetails = new DataClass();
+            DataConnection UpDateGameDetails = new DataConnection();
             UpDateGameDetails.selectQuery(Queries.updateDetails(textName.Text, gameId));
             MessageBox.Show("Sucessfully updated.");
             this.Close();
